@@ -15,6 +15,14 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+const path = require('path'); // Add this to the top of your file
+// ...
+
+// Serve static files from React build directory
+app.use(express.static(path.join(__dirname, '../ocr_project/build')));
+
+
+
 
 mongoose.connect(dbURI, {
     useNewUrlParser: true,
@@ -24,6 +32,50 @@ mongoose.connect(dbURI, {
 .catch(err => console.error('Could not connect to MongoDB Atlas', err));
 
 
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+const Project = mongoose.model('Project', new mongoose.Schema({
+    projectName: {
+        type: String,
+        required: true
+    },
+    leadTime: {
+        stringValue: {
+            type: String,
+            required: true
+        },
+        numberValue: {
+            type: Number,
+            required: true
+        }
+    },
+    duration: {
+        type: Number, 
+        required: true
+    },
+    tradeList: {
+        title: String, 
+        description: String
+    },
+    workAddress: {
+        street: String,
+        city: String, 
+        state: String,
+        zip: String
+    },
+    sketches: {
+        type: String, 
+        required: true
+    }
+}));
+
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../ocr_project/build', 'index.html'));
+});
+
+
+
+
+
+app.listen(3000, '0.0.0.0', () => {
+    console.log('Server running on http://0.0.0.0:3000');
 });

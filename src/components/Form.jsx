@@ -14,7 +14,7 @@ function Form() {
 
     const formik = useFormik({
         initialValues: {
-          email: '',
+          projectName: '',
         },
         onSubmit: values => {
           alert(JSON.stringify(values, null, 2));
@@ -31,13 +31,13 @@ function Form() {
                     </div>
                     <div className={`form-content ${formClicked ? 'active' : ''}`}>
                     <form onSubmit={formik.handleSubmit}>
-                   <label htmlFor="email">Email Address</label>
+                   <label htmlFor="email">Project Name</label>
                   <input
-                    id="email"
-                    name="email"
-                     type="email"
+                    id="0"
+                    name="projectName"
+                     type="text"
                       onChange={formik.handleChange}
-                     value={formik.values.email}
+                     value={formik.values.projectName}
                     />
                     <SubmissionArea onSubmit={formik.handleSubmit} />
                     <Sketches onSubmit={formik.handleSubmit} />

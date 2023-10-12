@@ -6,14 +6,20 @@ projectName: {
     required: true
 },
 leadTime: {
-    type: Number, 
-    required: true
+    stringValue: {
+        type: String,
+        required: true
+    },
+    numberValue: {
+        type: Number,
+        required: true
+    }
 }, 
 duration: {
     type: Number, 
     required: true
 },
-jobs: {
+tradeList: {
     title: String, 
     description: String
 },
@@ -26,8 +32,7 @@ workAddress: {
 sketches: {
     type: String, 
     required: true
-},
-tradesNeeded: [String]
+}
 });
 
 const Project = mongoose.model('Project', projectSchema);

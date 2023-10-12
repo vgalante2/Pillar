@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 function Sketches() {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -38,4 +38,4 @@ const processImagesWithOCR = async () => {
     );
 }
 
-export default Sketches
+export default Sketches;

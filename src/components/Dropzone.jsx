@@ -30,6 +30,7 @@ function Dropzone() {
       files.forEach(file => URL.revokeObjectURL(file.preview));
     };
   }, [files]);
+  
 
   return (
     <div {...getRootProps()}>
