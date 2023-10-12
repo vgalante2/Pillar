@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 
 
 body {
@@ -155,7 +156,8 @@ justify-content: center;
    font-family: 'Open Sans', sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
-  width: 200px;
+  width: 600px;
+  height: 150px;
 text-align: center;
 display: flex;
 align-items: center;
@@ -193,6 +195,15 @@ justify-content: center;
 
 /* FORM  */
 
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
 .form-container {
   height: 100%;
   position: relative;
@@ -227,7 +238,7 @@ justify-content: center;
 
 .form-content.active {
   opacity: 1;
-  
+ 
 }
 
 
@@ -238,13 +249,46 @@ justify-content: center;
   left: 90px;
   cursor: pointer;
   font-size: 1.7rem;
-   /* you can adjust this to increase the size of 'X' */
+ 
 }
 
 .cancel {
   color: rgb(128, 241, 154);
   background-color: black;
   border-radius: 20px;
+}
+
+
+.project-name-container {
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+
+}
+
+.project-name-input {
+  height: 30px;
+  width: 200px;
+}
+
+.project-name {
+  font-size: 2rem;
+  padding-right: 15px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.form-submit-btn {
+  border: none;
+  width: 150px;
+  height: 30px;
+  border-radius: 30px;
+
+}
+
+.form-submit-btn:hover {
+  background-color: rgb(118, 245, 175);
+  border: black solid 2px;
 }
 
 

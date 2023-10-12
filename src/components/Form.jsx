@@ -30,19 +30,23 @@ function Form() {
                        <CancelIcon  className="cancel"/>
                     </div>
                     <div className={`form-content ${formClicked ? 'active' : ''}`}>
-                    <form onSubmit={formik.handleSubmit}>
-                   <label htmlFor="email">Project Name</label>
+                    <form className="form" onSubmit={formik.handleSubmit}>
+                    <div className="project-name-container">
+                   <label className="project-name" htmlFor="projectName">Project Name</label>
                   <input
+                  className="project-name-input"
                     id="0"
                     name="projectName"
                      type="text"
                       onChange={formik.handleChange}
                      value={formik.values.projectName}
                     />
+                    </div>
+                    
                     <SubmissionArea onSubmit={formik.handleSubmit} />
-                    <Sketches onSubmit={formik.handleSubmit} />
+                    
  
-       <button type="submit">Submit</button>
+       <button className="form-submit-btn" type="submit">Submit</button>
                     </form>
                     </div>
                 </>
