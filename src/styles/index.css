@@ -383,3 +383,14 @@ padding-top: 40px;
 .jMjwEK {
   background-color: #62FE94 !important;
 }
+
+
+
+/* ABOUT US */
+
+.about-section {
+  margin: 1rem 2rem;
+  background-color: rgb(10, 10, 10);
+  height: 40vh;
+  border-radius: 20px;
+}
