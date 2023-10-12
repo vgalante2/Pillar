@@ -292,12 +292,3 @@ flex-direction: row;
 }
 
 
-
-/* SKETCHES */
-
-.sketch-btn {
-  height: 40px;
-  width: 250px;
-  background-color: rgb(116, 116, 116);
-border-radius: 20px;
-}

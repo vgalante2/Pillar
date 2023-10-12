@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useFormik } from 'formik';
 import SubmissionArea from './SubmissionArea';
-import Sketches from './Sketches';
 import CancelIcon from '@mui/icons-material/Cancel';
 
 
