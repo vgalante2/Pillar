@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import SubmissionArea from './SubmissionArea';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { DatePicker } from 'react-rainbow-components';
+import Select from 'react-select';
 // import { LocalizationProvider } from '@mui/x-date-pickers';
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 // import { DateRangeCalendar } from '@mui/x-date-pickers/DateRangeCalendar';
@@ -23,16 +24,25 @@ function Form({ children }) {
         initialValues: {
           projectName: '',
           projectAddress: '', 
+          multipleSelect: []
         },
         onSubmit: values => {
           alert(JSON.stringify(values, null, 2));
         },
     });
 
+
+    const options = [
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' },
+        // ...
+    ];
     
     const containerStyles = {
         maxWidth: 400,
     };
+
 
 
     return (
@@ -79,6 +89,15 @@ function Form({ children }) {
             onChange={newRange => setDateRange(newRange)}
         />
     </div>
+    <div className="jobs-section">
+    <Select
+    name="multipleSelect"
+    isMulti
+    options={options}
+    value={formik.values.multipleSelect}
+    onChange={option => formik.setFieldValue('multipleSelect', option)}
+/>
+</div>
                      
                     <SubmissionArea onSubmit={formik.handleSubmit} />
                     

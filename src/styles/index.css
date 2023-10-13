@@ -212,7 +212,7 @@ justify-content: center;
   align-items: center;
    justify-content: center;
    flex-direction: column;
-  gap: 20px;
+  
 }
 
 .pillar-img {
@@ -232,6 +232,7 @@ justify-content: center;
   justify-content: center;
   flex-direction: column;
   border-radius: 20px;
+  
   opacity: 0;
   transition: opacity 1s ease-in-out; 
  
@@ -365,7 +366,7 @@ padding-top: 40px;
 }
 
 .BZWSg {
-  color: rgb(76, 246, 149) !important;
+  color: rgb(15, 208, 121) !important;
 }
 
 .dDftEu {
@@ -373,11 +374,11 @@ padding-top: 40px;
 }
 
 .dZGTej::after {
-  color: rgb(19, 243, 142) !important;
+  color: rgb(15, 208, 121) !important;
 }
 
 .ebzlGz {
-  color:rgb(19, 243, 142) !important;
+  color:rgb(19, 207, 123) !important;
 }
 
 .jMjwEK {
@@ -394,3 +395,10 @@ padding-top: 40px;
   height: 40vh;
   border-radius: 20px;
 }
+
+
+.efOXCC svg {
+
+
+}
+
