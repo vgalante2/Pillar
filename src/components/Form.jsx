@@ -23,8 +23,10 @@ function Form({ children }) {
     const formik = useFormik({
         initialValues: {
           projectName: '',
-          projectAddress: '', 
-          multipleSelect: []
+          projectAddress: '',
+          projectJobs: '',
+          projectMaterials: ''
+          
         },
         onSubmit: values => {
           alert(JSON.stringify(values, null, 2));
@@ -32,12 +34,7 @@ function Form({ children }) {
     });
 
 
-    const options = [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3' },
-        // ...
-    ];
+    
     
     const containerStyles = {
         maxWidth: 400,
@@ -73,11 +70,30 @@ function Form({ children }) {
                       onChange={formik.handleChange}
                      value={formik.values.projectAddress}
                     />
+                    <label className="project-jobs" htmlFor="projectJobs">Project Jobs</label>
+                  <input
+                  className="project-jobs-input"
+                    id="1"
+                    name="projectJobs"
+                     type="text"
+                      onChange={formik.handleChange}
+                     value={formik.values.projectJobs}
+                    />
+                    <label className="project-material" htmlFor="projectMaterial">Lead Time</label>
+                  <input
+                  className="project-material-input"
+                    id="1"
+                    name="projectMaterial"
+                     type="text"
+                      onChange={formik.handleChange}
+                     value={formik.values.projectMaterial}
+                    />
                     </div>
                     <div
         className="date-picker"
         style={containerStyles}
     >
+    
         <DatePicker
             id="datePicker-15"
             label="Time duration of project:"
@@ -89,15 +105,7 @@ function Form({ children }) {
             onChange={newRange => setDateRange(newRange)}
         />
     </div>
-    <div className="jobs-section">
-    <Select
-    name="multipleSelect"
-    isMulti
-    options={options}
-    value={formik.values.multipleSelect}
-    onChange={option => formik.setFieldValue('multipleSelect', option)}
-/>
-</div>
+    
                      
                     <SubmissionArea onSubmit={formik.handleSubmit} />
                     
