@@ -433,3 +433,37 @@ color: green;
   display: flex;
   align-items: flex-end;
 }
+
+
+/* MATERIALS */
+
+.material-container {
+  padding: 20px;
+}
+
+.add-btn {
+  position: relative;
+  right: 35px;
+  bottom: 22px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(221, 221, 221);
+  color: rgb(166, 243, 166);
+}
+
+.add-btn:hover {
+  background-color: black;
+}
+
+.delete-btn {
+  position: relative;
+  left: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(221, 221, 221);
+  color: rgb(166, 243, 166);
+}
+
+.delete-btn:hover {
+  background-color: black;
+}

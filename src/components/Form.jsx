@@ -4,6 +4,7 @@ import SubmissionArea from './SubmissionArea';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { DatePicker } from 'react-rainbow-components';
 import Select from 'react-select';
+import Materials from './Materials';
 // import { LocalizationProvider } from '@mui/x-date-pickers';
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 // import { DateRangeCalendar } from '@mui/x-date-pickers/DateRangeCalendar';
@@ -79,7 +80,7 @@ function Form({ children }) {
                       onChange={formik.handleChange}
                      value={formik.values.projectJobs}
                     />
-                    <label className="project-material" htmlFor="projectMaterial">Lead Time</label>
+                    {/* <label className="project-material" htmlFor="projectMaterial">Lead Time</label>
                   <input
                   className="project-material-input"
                     id="1"
@@ -87,12 +88,13 @@ function Form({ children }) {
                      type="text"
                       onChange={formik.handleChange}
                      value={formik.values.projectMaterial}
-                    />
+                    /> */}
                     </div>
                     <div
         className="date-picker"
         style={containerStyles}
     >
+    <Materials />
     
         <DatePicker
             id="datePicker-15"
