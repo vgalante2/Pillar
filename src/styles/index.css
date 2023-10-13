@@ -201,6 +201,7 @@ justify-content: center;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  
 }
 
 
@@ -267,7 +268,7 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 gap: 20px;
-padding-top: 50px;
+padding-top: 60px;
 }
 
 .project-name-input {
@@ -402,3 +403,8 @@ padding-top: 40px;
 
 }
 
+.jobs-section {
+  height: 70px;
+  display: flex;
+  align-items: flex-end;
+}
