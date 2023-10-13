@@ -448,11 +448,12 @@ color: green;
   border-radius: 20px;
   border: none;
   background-color: rgb(221, 221, 221);
-  color: rgb(166, 243, 166);
+  color: rgb(0, 0, 0);
 }
 
 .add-btn:hover {
   background-color: black;
+  color: white;
 }
 
 .delete-btn {
@@ -461,9 +462,10 @@ color: green;
   border-radius: 20px;
   border: none;
   background-color: rgb(221, 221, 221);
-  color: rgb(166, 243, 166);
+  color: rgb(0, 0, 0);
 }
 
 .delete-btn:hover {
   background-color: black;
+  color: white;
 }
