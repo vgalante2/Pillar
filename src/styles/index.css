@@ -442,13 +442,16 @@ padding-top: 90px;
   padding: 20px;
   width: 100%;
   text-align: center;
-
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
 }
 
 .add-btn {
   position: relative;
-  right: 35px;
-  bottom: 22px;
+  right: 165px;
+  top: 20px;
   border-radius: 20px;
   border: none;
   background-color: rgb(221, 221, 221);
@@ -462,7 +465,8 @@ padding-top: 90px;
 
 .delete-btn {
   position: relative;
-  left: 10px;
+  left: 160px;
+   bottom: 42px;
   border-radius: 20px;
   border: none;
   background-color: rgb(221, 221, 221);

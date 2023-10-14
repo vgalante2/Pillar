@@ -13,15 +13,19 @@ function Materials() {
       setMaterials([...materials, { material: '', number: '' }]);
     };
 
-    const deleteMaterial = (indexToDelete) => {
-        const filteredMaterials = materials.filter((_, index) => index !== indexToDelete);
+    const deleteMaterial = () => {
+        // Always delete the last element in the array
+        const filteredMaterials = materials.slice(0, materials.length - 1);
         setMaterials(filteredMaterials);
       };
   
       return (
         <div className="material-container">
+        <div className="add-btn-div">
+        <button className="add-btn" onClick={addMaterial}>+</button>
+        </div>
           {materials.map((item, index) => (
-            <div key={index}>
+            <div  className="input-div" key={index}>
               <input
                 type="text"
                 placeholder="Items"
@@ -34,12 +38,14 @@ function Materials() {
                 value={item.number}
                 onChange={(e) => handleInputChange(index, 'number', e.target.value)}
               />
-              <button className="delete-btn" onClick={() => deleteMaterial(index)}>-</button>
             </div>
           ))}
-          <button className="add-btn" onClick={addMaterial}>+</button>
+          <div className="delete-btn-div">
+          {/* Show the delete button only if there are 2 or more materials */}
+          {materials.length >= 2 && <button className="delete-btn" onClick={deleteMaterial}>-</button>}
+          </div>
         </div>
       );
-  }
+}
 
 export default Materials;

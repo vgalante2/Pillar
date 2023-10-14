@@ -80,21 +80,8 @@ function Form({ children }) {
                       onChange={formik.handleChange}
                      value={formik.values.projectJobs}
                     />
-                    {/* <label className="project-material" htmlFor="projectMaterial">Lead Time</label>
-                  <input
-                  className="project-material-input"
-                    id="1"
-                    name="projectMaterial"
-                     type="text"
-                      onChange={formik.handleChange}
-                     value={formik.values.projectMaterial}
-                    /> */}
-                    </div>
-                    <div
-        className="date-picker"
-        style={containerStyles}
-    >
-    <Materials />
+                   
+                 <Materials />
     
         <DatePicker
             id="datePicker-15"
