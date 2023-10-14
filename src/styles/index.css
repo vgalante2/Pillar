@@ -274,11 +274,15 @@ padding-top: 90px;
 .project-name-input {
   height: 30px;
   width: 200px;
+  border-radius: 20px;
+  border: 1px solid black;
 }
 
 .project-address-input {
   height: 30px;
   width: 200px;
+  border-radius: 20px;
+  border: 1px solid black;
 }
 
 .project-address {
@@ -296,6 +300,7 @@ padding-top: 90px;
 .project-material-input {
   height: 30px;
   width: 200px;
+  
 }
 
 .project-jobs {
@@ -307,6 +312,8 @@ padding-top: 90px;
 .project-jobs-input {
   height: 30px;
   width: 200px;
+  border-radius: 20px;
+  border: 1px solid black;
 }
 
 .project-name {
@@ -423,10 +430,6 @@ padding-top: 40px;
 }
 
 
-.efOXCC svg {
-color: green;
-
-}
 
 .jobs-section {
   height: 70px;
@@ -439,6 +442,8 @@ color: green;
 
 .material-container {
   padding: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 .add-btn {
