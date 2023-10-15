@@ -27,12 +27,14 @@ function Materials() {
           {materials.map((item, index) => (
             <div  className="input-div" key={index}>
               <input
+              className="material-input-name"
                 type="text"
                 placeholder="Items"
                 value={item.material}
                 onChange={(e) => handleInputChange(index, 'material', e.target.value)}
               />
               <input
+              className="material-input-number"
                 type="number"
                 placeholder="number of days"
                 value={item.number}

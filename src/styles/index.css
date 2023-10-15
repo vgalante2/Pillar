@@ -200,7 +200,7 @@ justify-content: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   gap: 5px;
 }
 
@@ -212,9 +212,33 @@ justify-content: center;
   display: flex;
   align-items: center;
    justify-content: center;
-   flex-direction: column;
+   flex-direction: row;
   
 }
+
+.left-section, .right-section {
+  flex: 1; /* Each section takes up half the container width */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Spacing between elements within sections */
+}
+
+.left-section {
+  padding-right: 20px; /* Optional spacing between sections */
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
+}
+
+.right-section {
+  padding-left: 20px; /* Optional spacing between sections */
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
+}
+
+
 
 .pillar-img {
   height: 50px;
@@ -446,12 +470,13 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
+gap: 5px;
 }
 
 .add-btn {
   position: relative;
   right: 165px;
-  top: 20px;
+  top: 30px;
   border-radius: 20px;
   border: none;
   background-color: rgb(221, 221, 221);
@@ -481,3 +506,21 @@ flex-direction: column;
 .sc-lcIPJg .cGndr .sc-fjvvzt .lcvIHF {
   padding: 0 !important;
 }
+
+
+.material-input-name {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 1px rgb(59, 59, 59) solid;
+  height: 30px;
+}
+
+
+.material-input-number {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 1px rgb(59, 59, 59) solid;
+  height: 30px;
+}
+
+
