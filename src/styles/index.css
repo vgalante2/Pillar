@@ -156,7 +156,7 @@ justify-content: center;
    font-family: 'Open Sans', sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
-  width: 600px;
+  width: 400px;
   height: 120px;
 text-align: center;
 display: flex;
@@ -201,7 +201,7 @@ justify-content: center;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  gap: 50px;
+  gap: 150px;
 }
 
 
@@ -213,6 +213,7 @@ justify-content: center;
   align-items: center;
    justify-content: center;
    flex-direction: row;
+   
   
 }
 
