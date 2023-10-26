@@ -85,6 +85,7 @@ function Form({ children }) {
                                     />
                                     
                                     <DatePicker
+                                        className="date-picker"
                                         id="datePicker-15"
                                         label="Time duration of project:"
                                         placeholder="Select range of dates"

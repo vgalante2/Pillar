@@ -20,7 +20,7 @@ code {
 
 
 :root {
- --mainColor: #62FE94;
+ --mainColor: #74f69d;
 }
 
 
@@ -178,7 +178,7 @@ justify-content: center;
   width: 100px;
   border-radius: 20px;
   border: none;
-  background-color: rgb(139, 243, 139);
+  background-color: rgb(175, 233, 175);
   
   /* Adding transition for smooth changes */
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -252,13 +252,11 @@ justify-content: center;
 .form-content {
   height: 90%;
   width: 90%;
-  background-color: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   border-radius: 20px;
-  
   opacity: 0;
   transition: opacity 1s ease-in-out; 
  
@@ -266,7 +264,7 @@ justify-content: center;
 
 .form-content.active {
   opacity: 1;
- 
+  background-color: rgb(238, 238, 238);
 }
 
 
@@ -294,19 +292,22 @@ justify-content: center;
 flex-direction: column;
 gap: 10px;
 padding-top: 90px;
+
 }
 
 .project-name-input {
   height: 30px;
-  width: 200px;
+  width: 480px;
   border-radius: 20px;
   border: 1px solid black;
+  background-color: rgb(134, 134, 134);
 }
 
 .project-address-input {
   height: 30px;
-  width: 200px;
+  width: 480px;
   border-radius: 20px;
+  background-color: rgb(134, 134, 134);
   border: 1px solid black;
 }
 
@@ -324,7 +325,7 @@ padding-top: 90px;
 
 .project-material-input {
   height: 30px;
-  width: 200px;
+  width: 480px;
   
 }
 
@@ -336,9 +337,10 @@ padding-top: 90px;
 
 .project-jobs-input {
   height: 30px;
-  width: 200px;
+  width: 480px;
   border-radius: 20px;
   border: 1px solid black;
+  background-color: rgb(134, 134, 134);
 }
 
 .project-name {
@@ -369,17 +371,23 @@ padding-top: 90px;
 /* DATE PICKER */
 
 .date-picker {
-  width: 500px;
+  padding-top: 50px;
 
 
 }
 
 .date-picker button {
-  color: green;
+  background-color: green;
 }
 
 
 
+.hsneIM {
+background-color: #79f9a2 !important;
+color: rgb(0, 0, 0) !important;
+width: 500px !important;
+
+}
 
 
 
@@ -447,7 +455,7 @@ padding-top: 90px;
 
 .about-section {
   margin: 1rem 2rem;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(17, 17, 17);
   height: auto;
   border-radius: 20px;
   padding: 2rem;
@@ -465,7 +473,7 @@ padding-top: 90px;
   text-align: center;
   border-radius: 20px;
   padding: 1rem;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  
 }
 
 .image-box img {
@@ -479,18 +487,7 @@ padding-top: 90px;
   color: white; /* Or any color that matches your design */
 }
 
-.image-box1 {
-  background-color: #000000; /* gold color */
-}
 
-.image-box2 {
-  background-color: #000000; /* tomato color */
-
-}
-
-.image-box3 {
-  background-color: #000000; /* limegreen color */
-}
 
 .pillar-image {
   height: 100px;
@@ -522,6 +519,7 @@ padding-top: 90px;
 
 .material-container {
   padding: 20px;
+  padding-top: 100px;
   width: 100%;
   text-align: center;
 display: flex;
@@ -533,8 +531,8 @@ gap: 5px;
 
 .add-btn {
   position: relative;
-  right: 165px;
-  top: 30px;
+  right: 170px;
+  top: 35px;
   border-radius: 20px;
   border: none;
   background-color: rgb(221, 221, 221);
@@ -548,8 +546,8 @@ gap: 5px;
 
 .delete-btn {
   position: relative;
-  left: 160px;
-   bottom: 42px;
+  left: 170px;
+   bottom: 40px;
   border-radius: 20px;
   border: none;
   background-color: rgb(221, 221, 221);
@@ -570,7 +568,8 @@ gap: 5px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border: 1px rgb(59, 59, 59) solid;
-  height: 30px;
+  height: 40px;
+  background-color: rgb(134, 134, 134);
 }
 
 
@@ -578,7 +577,13 @@ gap: 5px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border: 1px rgb(59, 59, 59) solid;
-  height: 30px;
+  height: 40px;
+  color: white;
+  background-color: rgb(134, 134, 134);
 }
 
 
+input::placeholder {
+  color: white; /* Replace 'red' with your desired color */
+  padding: 5px 8px;
+}
