@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import SubmissionArea from './SubmissionArea';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { DatePicker } from 'react-rainbow-components';
-import Select from 'react-select';
+// import Select from 'react-select';
 import Materials from './Materials';
 // import { LocalizationProvider } from '@mui/x-date-pickers';
 // import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
@@ -26,8 +26,8 @@ function Form({ children }) {
           projectName: '',
           projectAddress: '',
           projectJobs: '',
-          projectMaterials: ''
-          
+          projectMaterials: '',
+          dateRange: null,
         },
         onSubmit: values => {
           alert(JSON.stringify(values, null, 2));
@@ -37,9 +37,7 @@ function Form({ children }) {
 
     
     
-    const containerStyles = {
-        maxWidth: 400,
-    };
+  
 
 
 

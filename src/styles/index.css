@@ -125,6 +125,7 @@ a {
   background-color: rgb(10, 10, 10);
   height: 100vh;
   border-radius: 20px;
+  z-index: 99;
 }
 
 
@@ -522,39 +523,24 @@ width: 500px !important;
   padding-top: 100px;
   width: 100%;
   text-align: center;
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+  max-height: 400px; 
 }
 
-.add-btn {
-  position: relative;
-  right: 170px;
-  top: 35px;
+.add-btn, .delete-btn {
   border-radius: 20px;
   border: none;
   background-color: rgb(221, 221, 221);
   color: rgb(0, 0, 0);
+  margin: 10px;  /* Adjust as needed */
 }
 
-.add-btn:hover {
-  background-color: black;
-  color: white;
-}
-
-.delete-btn {
-  position: relative;
-  left: 170px;
-   bottom: 40px;
-  border-radius: 20px;
-  border: none;
-  background-color: rgb(221, 221, 221);
-  color: rgb(0, 0, 0);
-}
-
-.delete-btn:hover {
+.add-btn:hover, .delete-btn:hover {
   background-color: black;
   color: white;
 }
@@ -568,7 +554,7 @@ gap: 5px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border: 1px rgb(59, 59, 59) solid;
-  height: 40px;
+  height: 20px;
   background-color: rgb(134, 134, 134);
 }
 
@@ -577,7 +563,8 @@ gap: 5px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border: 1px rgb(59, 59, 59) solid;
-  height: 40px;
+  height: 20px;
+  width: 70px;
   color: white;
   background-color: rgb(134, 134, 134);
 }

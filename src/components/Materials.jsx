@@ -22,7 +22,7 @@ function Materials() {
       return (
         <div className="material-container">
         <div className="add-btn-div">
-        <button className="add-btn" onClick={addMaterial}>+</button>
+        <button type="button" className="add-btn" onClick={addMaterial}>+</button>
         </div>
           {materials.map((item, index) => (
             <div  className="input-div" key={index}>
@@ -36,7 +36,7 @@ function Materials() {
               <input
               className="material-input-number"
                 type="number"
-                placeholder="number of days"
+                placeholder="# of days"
                 value={item.number}
                 onChange={(e) => handleInputChange(index, 'number', e.target.value)}
               />
@@ -44,7 +44,7 @@ function Materials() {
           ))}
           <div className="delete-btn-div">
           {/* Show the delete button only if there are 2 or more materials */}
-          {materials.length >= 2 && <button className="delete-btn" onClick={deleteMaterial}>-</button>}
+          {materials.length >= 2 && <button type="button" className="delete-btn" onClick={deleteMaterial}>-</button>}
           </div>
         </div>
       );
