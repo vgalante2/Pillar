@@ -90,8 +90,8 @@ function Form({ children }) {
                                         selectionType="range"
                                         formatStyle="large"
                                         variant="single"
-                                        value={dateRange}
-                                        onChange={newRange => setDateRange(newRange)}
+                                        value={formik.values.dateRange}
+                                        onChange={newRange => formik.setFieldValue("dateRange", newRange)}
                                     />
                                 </div>
                         
