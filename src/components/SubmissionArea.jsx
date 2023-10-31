@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'; // This is for prop typechecking
 import Dropzone from "./Dropzone";
 
-function SubmissionArea() {
+function SubmissionArea({ onOcrComplete }) { // Destructure onOcrComplete from props
     const [selectedFiles, setSelectedFiles] = useState([]);
     const [uploadedImage, setUploadedImage] = useState(null);
     const [ocrText, setOcrText] = useState('');
@@ -21,10 +22,13 @@ function SubmissionArea() {
           const data = await response.json();
   
           if (data.result) {
-              console.log("OCR Successful:", data.result);
-              setOcrText(data.result);
+            console.log("OCR Successful:", data.result);
+            setOcrText(data.result);
+            if(onOcrComplete) {
+                onOcrComplete(data.result);  // Pass the result to the parent form
+            }
           } else {
-              console.log("OCR didn't return any text.");
+            console.log("OCR didn't return any text.");
           }
       } catch (error) {
           console.log("Error processing images: ", error);
@@ -51,5 +55,10 @@ function SubmissionArea() {
         </section>
     );
 }
+
+// Prop typechecking
+SubmissionArea.propTypes = {
+    onOcrComplete: PropTypes.func
+};
 
 export default SubmissionArea;

@@ -20,7 +20,7 @@ code {
 
 
 :root {
- --mainColor: #74f69d;
+ --mainColor: #85f798;
 }
 
 
@@ -43,13 +43,14 @@ code {
   margin: 1rem 2rem;
   border-radius: 20px;
   align-self: center;
+  
 }
 
 
 .nav-items {
   display: flex;
   gap: 20px;  /* This will create a gap between each anchor tag */
-
+  z-index: 99;
 }
 
 
@@ -86,6 +87,7 @@ a {
 
     header .nav-btn .nav-items  {
       color: var(--mainColor);
+      
     }
 
     header nav{
@@ -111,6 +113,7 @@ a {
     header .responsive-nav {
       transform: none;
       color: var(--mainColor);
+      z-index: 99;
     }
 
     
@@ -265,7 +268,7 @@ justify-content: center;
 
 .form-content.active {
   opacity: 1;
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(251, 255, 244);
 }
 
 
@@ -301,14 +304,14 @@ padding-top: 90px;
   width: 480px;
   border-radius: 20px;
   border: 1px solid black;
-  background-color: rgb(134, 134, 134);
+  background-color: rgb(189, 189, 189);
 }
 
 .project-address-input {
   height: 30px;
   width: 480px;
   border-radius: 20px;
-  background-color: rgb(134, 134, 134);
+  background-color: rgb(189, 189, 189);
   border: 1px solid black;
 }
 
@@ -341,7 +344,7 @@ padding-top: 90px;
   width: 480px;
   border-radius: 20px;
   border: 1px solid black;
-  background-color: rgb(134, 134, 134);
+  background-color: rgb(189, 189, 189);
 }
 
 .project-name {
@@ -352,17 +355,18 @@ padding-top: 90px;
 
 .form-submit-btn {
   border: none;
-  width: 150px;
-  height: 30px;
+  width: 50%;
+  height: 50px;
   border-radius: 30px;
-  position: relative;
+  position: absolute;
   bottom: 80px;
-  background-color: rgb(53, 53, 53);
+  left: 400px;
+  background-color: rgb(0, 0, 0);
   color: white;
 }
 
 .form-submit-btn:hover {
-  background-color: rgb(118, 245, 175);
+  background-color: rgb(160, 235, 155);
   border: black solid 2px;
   color: black;
 }
@@ -384,7 +388,7 @@ padding-top: 90px;
 
 
 .hsneIM {
-background-color: #79f9a2 !important;
+  background-color: var(--mainColor) !important;
 color: rgb(0, 0, 0) !important;
 width: 500px !important;
 
@@ -555,7 +559,7 @@ width: 500px !important;
   border-bottom-left-radius: 20px;
   border: 1px rgb(59, 59, 59) solid;
   height: 20px;
-  background-color: rgb(134, 134, 134);
+  background-color: rgb(189, 189, 189);
 }
 
 
@@ -565,12 +569,11 @@ width: 500px !important;
   border: 1px rgb(59, 59, 59) solid;
   height: 20px;
   width: 70px;
-  color: white;
-  background-color: rgb(134, 134, 134);
+  background-color: rgb(189, 189, 189);
 }
 
 
 input::placeholder {
-  color: white; /* Replace 'red' with your desired color */
+  color: rgb(0, 0, 0); /* Replace 'red' with your desired color */
   padding: 5px 8px;
 }

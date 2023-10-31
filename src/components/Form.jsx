@@ -13,7 +13,7 @@ import Materials from './Materials';
 
 function Form({ children }) {
     const [formClicked, setFormClicked] = useState(false);
-    const [dateRange, setDateRange] = useState(null);
+    
      
 
     const handleClick = () => {
