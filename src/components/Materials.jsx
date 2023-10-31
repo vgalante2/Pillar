@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-function Materials() {
+
+function Materials({formik}) {
     const [materials, setMaterials] = useState([{ material: '', number: '' }]);
 
     const handleInputChange = (index, type, value) => {
@@ -10,38 +11,39 @@ function Materials() {
     };
   
     const addMaterial = () => {
-      setMaterials([...materials, { material: '', number: '' }]);
-    };
-
-    const deleteMaterial = () => {
-        // Always delete the last element in the array
-        const filteredMaterials = materials.slice(0, materials.length - 1);
-        setMaterials(filteredMaterials);
-      };
+      const newMaterials = [...formik.values.projectMaterials, { materialName: '', materialNumber: '' }];
+      formik.setFieldValue("projectMaterials", newMaterials);
+  };
+  
+  const deleteMaterial = () => {
+      const filteredMaterials = formik.values.projectMaterials.slice(0, formik.values.projectMaterials.length - 1);
+      formik.setFieldValue("projectMaterials", filteredMaterials);
+  };
   
       return (
         <div className="material-container">
         <div className="add-btn-div">
         <button type="button" className="add-btn" onClick={addMaterial}>+</button>
         </div>
-          {materials.map((item, index) => (
-            <div  className="input-div" key={index}>
-              <input
-              className="material-input-name"
-                type="text"
-                placeholder="Items"
-                value={item.material}
-                onChange={(e) => handleInputChange(index, 'material', e.target.value)}
-              />
-              <input
-              className="material-input-number"
-                type="number"
-                placeholder="# of days"
-                value={item.number}
-                onChange={(e) => handleInputChange(index, 'number', e.target.value)}
-              />
-            </div>
-          ))}
+        {formik.values.projectMaterials.map((material, index) => (
+  <div key={index}>
+    <input 
+     className="material-input-name"
+      name={`projectMaterials[${index}].materialName`} 
+      value={material.materialName}
+      onChange={formik.handleChange}
+      placeholder="Material Name"
+    />
+    <input 
+      className="material-input-number"
+      name={`projectMaterials[${index}].materialNumber`} 
+      value={material.materialNumber}
+      onChange={formik.handleChange}
+      placeholder="# of Days"
+    />
+  </div>
+))}
+
           <div className="delete-btn-div">
           {/* Show the delete button only if there are 2 or more materials */}
           {materials.length >= 2 && <button type="button" className="delete-btn" onClick={deleteMaterial}>-</button>}

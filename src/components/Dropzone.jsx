@@ -1,36 +1,24 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 
-function Dropzone() {
-  const [files, setFiles] = useState([]);
+function Dropzone({ onFilesChanged, accept }) {
 
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
-    if (acceptedFiles?.length) {
-      setFiles((previousFiles) => [
-        ...previousFiles,
-        ...acceptedFiles.map((file) =>
-          Object.assign(file, {
-            preview: URL.createObjectURL(file)
-          })
-        )
-      ]);
-      console.log(acceptedFiles);
-      if (rejectedFiles.length) {
-        console.warn("Some files were rejected:", rejectedFiles);
-      }
+    // Notify parent component about the accepted files
+    if (acceptedFiles?.length && onFilesChanged) {
+      onFilesChanged(acceptedFiles);
     }
-  }, []);
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+    if (rejectedFiles.length) {
+      console.warn("Some files were rejected:", rejectedFiles);
+    }
+  }, [onFilesChanged]);
 
-  useEffect(() => {
-    // Revoke the data uris to free up memory
-    return () => {
-      files.forEach(file => URL.revokeObjectURL(file.preview));
-    };
-  }, [files]);
-  
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept  // Pass the accept prop to useDropzone
+  });
 
   return (
     <div {...getRootProps()}>

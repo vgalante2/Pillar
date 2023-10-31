@@ -23,14 +23,14 @@ function Form({ children }) {
 
     const formik = useFormik({
         initialValues: {
-          projectName: '',
-          projectAddress: '',
-          projectJobs: '',
-          projectMaterials: '',
-          dateRange: null,
+            projectName: '',
+            projectAddress: '',
+            projectJobs: '',
+            dateRange: [null, null],
+            projectMaterials: [{ materialName: '', materialNumber: '' }]
         },
         onSubmit: values => {
-          alert(JSON.stringify(values, null, 2));
+            alert(JSON.stringify(values, null, 2));
         },
     });
 
@@ -97,7 +97,7 @@ function Form({ children }) {
                         
     
                             <div className="right-section">  {/* New className for styling purposes */}
-                                <Materials />
+                            <Materials formik={formik} />
                                 <SubmissionArea onSubmit={formik.handleSubmit} />
                                 <button className="form-submit-btn" type="submit">Submit</button>
                             </div>
