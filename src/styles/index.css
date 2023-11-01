@@ -170,6 +170,16 @@ justify-content: center;
   
 }
 
+.draw-pic {
+  height:250px;
+  width: 250px;
+  position: absolute;
+  right: 300px;
+  transform: rotate(-10deg);
+}
+
+
+
 .drop-area:hover {
   background-color: rgb(209, 131, 248);
   transition: 0.5s ease-in-out;
@@ -178,8 +188,8 @@ justify-content: center;
 
 
 .open-btn {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   border-radius: 20px;
   border: none;
   background-color: rgb(175, 233, 175);
@@ -193,6 +203,7 @@ justify-content: center;
   
   /* Expanding the button's size */
   transform: scale(1.1); /* This will make the button 10% larger when hovered */
+  
 }
 
 
@@ -208,13 +219,25 @@ justify-content: center;
   gap: 149px;
 }
 
+
+.proj-img {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  left: 450px;
+   bottom: 250px;
+
+}
+
 .form-section {
   margin: 1rem 2rem;
   background-color: rgb(10, 10, 10);
   height: 82vh;
   border-radius: 20px;
   z-index: 99;
-
+  display: flex;
+  
+  align-items: center;
 }
 
 .form-container {
@@ -276,7 +299,8 @@ justify-content: center;
 
 .form-content.active {
   opacity: 1;
-  background-color: rgb(251, 255, 244);
+  background-color: rgb(255, 255, 255);
+  
 }
 
 

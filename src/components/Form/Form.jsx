@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useFormik } from 'formik';
-import SubmissionArea from './SubmissionArea';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { DatePicker } from 'react-rainbow-components';
 // import Select from 'react-select';
@@ -43,6 +42,7 @@ function Form({ children }) {
 
     return (
         <section className="form-section">
+        <img className="proj-img" src="./proj.png" alt="project" />
         <div className="form-container">
             {formClicked ? (
                 <>
@@ -83,7 +83,11 @@ function Form({ children }) {
                                         value={formik.values.projectJobs}
                                     />
                                     
-                                    <DatePicker
+                                </div>
+                        
+    
+                            <div className="right-section">  {/* New className for styling purposes */}
+                            <DatePicker
                                         className="date-picker"
                                         id="datePicker-15"
                                         label="Time duration of project:"
@@ -94,12 +98,8 @@ function Form({ children }) {
                                         value={formik.values.dateRange}
                                         onChange={newRange => formik.setFieldValue("dateRange", newRange)}
                                     />
-                                </div>
-                        
-    
-                            <div className="right-section">  {/* New className for styling purposes */}
                             <Materials formik={formik} />
-                                <SubmissionArea onSubmit={formik.handleSubmit} />
+                                
                                 <button className="form-submit-btn" type="submit">Submit</button>
                             </div>
                         </form>

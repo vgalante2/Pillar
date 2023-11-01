@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'; // This is for prop typechecking
-import Dropzone from "./Dropzone";
+import Dropzone from "../FileProcessor/Dropzone";
 
 function SubmissionArea({ onOcrComplete }) { // Destructure onOcrComplete from props
     const [selectedFiles, setSelectedFiles] = useState([]);
@@ -52,6 +52,7 @@ function SubmissionArea({ onOcrComplete }) { // Destructure onOcrComplete from p
                 </ul>
             </div>
             <div>{ocrText}</div>
+            <img src="./pics.png" className="draw-pic" alt="pics" />
         </section>
     );
 }
