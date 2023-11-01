@@ -32,6 +32,7 @@ function Dropzone({ onFilesChanged, accept }) {
       )}
     </div>
   );
+  
 }
 
 export default Dropzone;

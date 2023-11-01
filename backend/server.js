@@ -1,4 +1,7 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
+const pdfRoutes = require('./pdfRoutes'); 
+const Tesseract = require('tesseract.js');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -9,11 +12,35 @@ dotenv.config();
 const dbURI = process.env.MONGO_URI;
 
 const app = express();
-// const data = "./project.json";
 
-
+// Use cors middleware
 app.use(cors());
+
+// Use bodyParser middleware
 app.use(bodyParser.json());
+
+// Use express-fileupload middleware
+app.use(fileUpload());
+
+app.use(pdfRoutes);
+
+
+
+
+
+// OCR endpoint
+app.post('/api/ocr', async (req, res) => {
+    try {
+        let file = req.files.uploadfile;
+        let result = await Tesseract.recognize(file.data);
+        res.json({ result: result.data.text });
+    } catch (error) {
+        res.status(500).send("Error in OCR processing.");
+    }
+});
+
+
+
 
 const path = require('path'); // Add this to the top of your file
 // ...

@@ -126,7 +126,7 @@ a {
 .hero-section {
   margin: 1rem 2rem;
   background-color: rgb(10, 10, 10);
-  height: 100vh;
+  /* height: 100vh; */
   border-radius: 20px;
   z-index: 99;
 }
@@ -208,6 +208,14 @@ justify-content: center;
   gap: 149px;
 }
 
+.form-section {
+  margin: 1rem 2rem;
+  background-color: rgb(10, 10, 10);
+  height: 82vh;
+  border-radius: 20px;
+  z-index: 99;
+
+}
 
 .form-container {
   height: 100%;

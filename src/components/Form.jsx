@@ -13,7 +13,7 @@ import Materials from './Materials';
 
 function Form({ children }) {
     const [formClicked, setFormClicked] = useState(false);
-    
+   
      
 
     const handleClick = () => {
@@ -42,6 +42,7 @@ function Form({ children }) {
 
 
     return (
+        <section className="form-section">
         <div className="form-container">
             {formClicked ? (
                 <>
@@ -110,6 +111,7 @@ function Form({ children }) {
                 </button>
             )}
         </div>
+        </section>
     );
             }
 
