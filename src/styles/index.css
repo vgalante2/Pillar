@@ -584,7 +584,6 @@ width: 500px !important;
 
 .material-container {
   padding: 20px;
-  padding-top: 100px;
   width: 100%;
   text-align: center;
   display: flex;
@@ -593,7 +592,7 @@ width: 500px !important;
   flex-direction: column;
   gap: 5px;
   overflow-y: auto;
-  max-height: 400px; 
+  max-height: 300px; 
 }
 
 .add-btn, .delete-btn {
