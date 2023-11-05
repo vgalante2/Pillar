@@ -1,82 +1,77 @@
-import React, { useState } from 'react';
-import Dropzone from "./Dropzone";
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
-function PdfProcess({ onProcessComplete }) {
-    const [uploadedPDF, setUploadedPDF] = useState(null);
-    const [ocrResult, setOcrResult] = useState('');
-    const [processing, setProcessing] = useState(false);
-    const [selectedFile, setSelectedFile] = useState(null);
+function PdfProcess({ uploadedPDF, onProcessComplete }) {
     const [convertedImages, setConvertedImages] = useState([]);
-    const [error, setError] = useState('');
-   
 
-    const handlePDFUpload = async (event) => {  // Note the 'async' keyword added here
-        const file = event.target.files[0];
+    const handlePDFUpload = async (file) => {
         if (file && file.type === "application/pdf") {
-            setUploadedPDF(file);
-            setProcessing(true);
-            setError('');  // Clear previous error if any
-            
             // Convert PDF to Image
             const formData = new FormData();
             formData.append('pdfFile', file);
             try {
-                const response = await axios.post('/convert-pdf-to-image', formData);
-                const images = response.data.images;
-                setConvertedImages(images);
-    
-                // Further processing if needed (e.g., OCR)
-                processPDFWithOCR(file);
+                const response = await fetch('/convert-pdf-to-image', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                
+                // Check if data.images is an array
+                if (Array.isArray(data.images)) {
+                    setConvertedImages(data.images);
+                    
+                    // Process the converted images with OCR
+                    processImagesWithOCR();
+                } else {
+                    console.error("Received data is not an array:", data.images);
+                }
+
             } catch (error) {
-                setError("Error converting PDF to image.");
                 console.error("Error during conversion:", error);
             }
-        } else {
-            setError('Please upload a valid PDF file.');
         }
     };
 
-    const processPDFWithOCR = async (file) => {
-        const formData = new FormData();
-        formData.append('pdfFile', file);
+    const processImagesWithOCR = async () => {
         try {
-            const response = await fetch('/api/pdf-to-ocr', {
-                method: 'POST',
-                body: formData
-            });
-            const data = await response.json();
-            if (data.result) {
-                setOcrResult(data.result);
-                onProcessComplete(data.result);
-            } else {
-                setError("OCR didn't return any text.");
+            for (const image of convertedImages) {
+                const formData = new FormData();
+                formData.append('uploadfile', image);
+                const response = await fetch('/api/ocr', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                if (data.result) {
+                    console.log("OCR Successful:", data.result);
+                    if(onProcessComplete) {
+                        onProcessComplete(data.result);  // Pass the OCR text to the parent
+                    }
+                } else {
+                    console.log("OCR didn't return any text.");
+                }
             }
         } catch (error) {
-            setError("Error processing PDF. Please try again.");
-            console.error("Error processing PDF: ", error);
-        } finally {
-            setProcessing(false);
+            console.log("Error processing images: ", error);
         }
     };
 
-    const clearUploadedFile = () => {
-        setUploadedPDF(null);
-        setOcrResult('');
-        setError('');
-    };
+    useEffect(() => {
+        if (uploadedPDF) {
+            handlePDFUpload(uploadedPDF);
+        }
+    }, [uploadedPDF]);
 
     return (
         <div className="pdf-process-container">
             {/* ... other components and elements ... */}
             <div className="converted-images">
-                {convertedImages.map((image, index) => (
+                {convertedImages && convertedImages.map((image, index) => (
                     <img key={index} src={`data:image/png;base64,${image}`} alt={`Converted page ${index + 1}`} />
                 ))}
             </div>
         </div>
     );
-    
 }
 
 export default PdfProcess;
+

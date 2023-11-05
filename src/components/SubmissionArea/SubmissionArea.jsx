@@ -1,65 +1,35 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types'; // This is for prop typechecking
+import PropTypes from 'prop-types';
 import Dropzone from "../FileProcessor/Dropzone";
+import PdfProcess from "../FileProcessor/PdfProcess";
 
-function SubmissionArea({ onOcrComplete }) { // Destructure onOcrComplete from props
-    const [selectedFiles, setSelectedFiles] = useState([]);
-    const [uploadedImage, setUploadedImage] = useState(null);
-    const [ocrText, setOcrText] = useState('');
 
-    const fileList = selectedFiles.map(file => <li key={file.name}>{file.name}</li>);
+function SubmissionArea() {
+    const [selectedFile, setSelectedFile] = useState(null);
 
-    const processImagesWithOCR = async () => {
-      const formData = new FormData();
-      formData.append('uploadfile', uploadedImage);
-  
-      try {
-          const response = await fetch('/api/ocr', {
-              method: 'POST',
-              body: formData
-          });
-  
-          const data = await response.json();
-  
-          if (data.result) {
-            console.log("OCR Successful:", data.result);
-            setOcrText(data.result);
-            if(onOcrComplete) {
-                onOcrComplete(data.result);  // Pass the result to the parent form
-            }
-          } else {
-            console.log("OCR didn't return any text.");
-          }
-      } catch (error) {
-          console.log("Error processing images: ", error);
-      }
-  };
-
-    const handleImageUpload = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            setUploadedImage(file);
-            processImagesWithOCR(); // Automatically start the OCR process
-        }
+    const handleFileReceived = (files) => {
+        const file = files[0];
+        setSelectedFile(file);
     };
 
     return (
         <section className="submission-section">
             <div className="submission-container">
-                <Dropzone onFilesChanged={setSelectedFiles} onChange={handleImageUpload} />
-                <ul>
-                    {fileList}
-                </ul>
+                <Dropzone onFilesChanged={handleFileReceived} />
+                {selectedFile && <p>Uploaded File: {selectedFile.name}</p>}
+                
             </div>
-            <div>{ocrText}</div>
+            <PdfProcess uploadedPDF={selectedFile} />
             <img src="./pics.png" className="draw-pic" alt="pics" />
         </section>
     );
 }
 
+
 // Prop typechecking
 SubmissionArea.propTypes = {
-    onOcrComplete: PropTypes.func
+    onOcrComplete: PropTypes.func  // You can retain this if you plan to use it in the future, but as of now, it's unused.
 };
 
 export default SubmissionArea;
+
