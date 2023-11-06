@@ -1,29 +1,39 @@
 const express = require('express');
 const multer = require('multer');
+const Tesseract = require('tesseract.js');
 const { pdf } = require('pdf-to-img');
-
 const router = express.Router();
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-router.post('/convert-pdf-to-image', upload.single('pdfFile'), async (req, res) => {
+// This endpoint will handle both PDF to image conversion and OCR
+router.post('/api/convert-pdf-to-image', upload.single('pdfFile'), async (req, res) => {
+    if (!req.file) {
+        return res.status(400).send('No file uploaded');
+    }
+
     try {
-        if (!req.file) {
-            return res.status(400).send('No file uploaded');
-        }
-
-        const doc = await pdf(req.file.buffer); // Convert the uploaded PDF buffer
+        // Convert the uploaded PDF buffer to images
+        const doc = await pdf(req.file.buffer);
         const images = [];
+        const ocrResults = [];
+
         for await (const page of doc) {
-            images.push(page.toString('base64')); // Convert image data to base64 string for easy transmission
+            const imageBase64 = page.toString('base64');
+            images.push(imageBase64); // Collect image data
+            
+            // Perform OCR on the converted image
+            const ocrResult = await Tesseract.recognize(Buffer.from(imageBase64, 'base64'));
+            ocrResults.push(ocrResult.data.text); // Collect OCR result
         }
 
-        // Return the base64 encoded images to the frontend
-        res.json({ images: images });
+        // Respond with the images and OCR results
+        res.json({ images, ocrResults });
 
     } catch (error) {
-        console.error('Error converting PDF to image:', error);
-        res.status(500).send('Error processing file');
+        console.error('Error during PDF processing:', error);
+        res.status(500).send('Error processing PDF file');
     }
 });
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const pdfRoutes = require('./pdfRoutes'); 
+const { pdf } = require("pdf-to-img");
 const Tesseract = require('tesseract.js');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -22,7 +23,7 @@ app.use(bodyParser.json());
 // Use express-fileupload middleware
 app.use(fileUpload());
 
-app.use(pdfRoutes);
+app.use('/api',pdfRoutes);
 
 
 
